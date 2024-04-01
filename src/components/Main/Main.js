@@ -6,24 +6,20 @@ const Main=(props)=>{
   
     const [editing,setEditing]=useState(false)
     const[editItem,setEditItem]=useState({})
-    let j={};
+  
     const addItem=(item)=>{
         props.addItem(item)
         setEditing(false);
+        setEditItem({})
     }
 
     const editClicked=(id)=>{
         setEditing(true);
-        for(let i of props.items){
-            if(i.id==id){setEditItem(i)
-                
-            j=i;
-            setEditItem(j)
-            console.log(editItem,j,i,"here")
-            break;}
+        const itemToEdit = props.items.find(item => item.id === id);
+        if (itemToEdit) {
+            setEditItem(itemToEdit);
         }
-        console.log(editItem,"MAin")
-        if(editItem.id!=id)setEditItem({});
+        console.log(editItem,"MAin") 
     }
     const deleteClicked=(id)=>{
         props.deleteItem(id)
@@ -32,7 +28,7 @@ const Main=(props)=>{
     return(
         <React.Fragment>
             <h2 align="center">Total Blogs={props.items.length}</h2>
-        <Form editing={editing} add={addItem} item={j}></Form>
+        <Form editing={editing} add={addItem} item={editItem}></Form>
         <ItemList items={props.items} editClicked={editClicked} deleteClicked={deleteClicked} ></ItemList>
        
         </React.Fragment>

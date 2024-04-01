@@ -9,18 +9,19 @@ const Form=(props)=>{
     let button='Post';
 
     if(props.editing===true){button="Edit"
-    console.log(props.item)
-//   idRef.current.value=props.editItem.id;
-// titleRef.current.value=props.editItem.title;
-// urlRef.current.value=props.editItem.url;
-// descriptionRef.current.value=props.editItem.description;
+  idRef.current.value=props.item.id;
+titleRef.current.value=props.item.title;
+urlRef.current.value=props.item.url;
+descriptionRef.current.value=props.item.description;
 }
     else {button="Post";
+    console.log("post")
+    //idRef.current.value=-1;
 }
 
     const buttonAction=()=>{
        
-        if(button==="Post"){
+        
             
             console.log("buttonAction")
             let item={
@@ -29,21 +30,24 @@ const Form=(props)=>{
             description:descriptionRef.current.value,
         url:urlRef.current.value}
 props.add(item)
-        }
-        else{}
+idRef.current.value=-1;
+titleRef.current.value="";
+urlRef.current.value="";
+descriptionRef.current.value="";
+        
     }
 
     return(
     <React.Fragment>
         
         <input id="id" type="number" hidden={true} ref={idRef}></input>
-        <label for='title'>Title:</label>
+        <label htmlFor='title'>Title:</label>
         <input id="title" type="text" width={50} ref={titleRef}></input>
         <br></br>
-        <label for='description'>Description:</label>
+        <label htmlFor='description'>Description:</label>
         <input id="description" type="text" width={50} ref={descriptionRef}></input>
         <br></br>
-        <label for='url'>URL:</label>
+        <label htmlFor='url'>URL:</label>
         <input id="url" type="url" width={50} ref={urlRef}></input>
         <br></br>
         <input id="button" type="button" width={50} value={button} onClick={buttonAction}></input>
