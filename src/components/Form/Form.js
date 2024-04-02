@@ -1,4 +1,5 @@
 import React,{useRef} from "react";
+import Button from "../UI/Button";
 
 const Form=(props)=>{
  
@@ -50,7 +51,8 @@ descriptionRef.current.value="";
         <label htmlFor='url'>URL:</label>
         <input id="url" type="url" width={50} ref={urlRef}></input>
         <br></br>
-        <input id="button" type="button" width={50} value={button} onClick={buttonAction}></input>
+        <br></br>
+        <Button id="submit" onClick={buttonAction} >{button}</Button>
     </React.Fragment>)
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../UI/Button"
 
 const Item=(props)=>{
 let item=props.item
@@ -15,8 +16,8 @@ const deleteClicked=()=>{
         <h2> title={props.item.title}</h2>
         <img src={props.item.url} alt="img" width="200" height="200"></img>
         <p>{props.item.description}</p>
-        <button onClick={editClicked}>Edit</button >
-        <button onClick={deleteClicked}>Delete</button >
+        <Button onClick={editClicked}>Edit</Button >
+        <Button onClick={deleteClicked}>Delete</Button >
     </React.Fragment>)
 }
 
