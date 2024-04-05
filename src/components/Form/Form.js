@@ -1,5 +1,6 @@
 import React,{useRef} from "react";
-import Button from "../UI/Button";
+import Button from "../UI/Button/Button";
+import Input from "../UI/Input/Input";
 
 const Form=(props)=>{
  
@@ -45,8 +46,10 @@ descriptionRef.current.value="";
         <label htmlFor='title'>Title:</label>
         <input id="title" type="text" width={50} ref={titleRef}></input>
         <br></br>
+        <br></br>
         <label htmlFor='description'>Description:</label>
         <input id="description" type="text" width={50} ref={descriptionRef}></input>
+        <br></br> 
         <br></br>
         <label htmlFor='url'>URL:</label>
         <input id="url" type="url" width={50} ref={urlRef}></input>
